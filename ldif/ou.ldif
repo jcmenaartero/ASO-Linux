@@ -1,0 +1,7 @@
+dn: ou=usuarios,dc=ies,dc=local
+objectClass: organizationalUnit
+ou: usuarios
+
+dn: ou=grupos,dc=ies,dc=local
+objectClass: organizationalUnit
+ou: grupos

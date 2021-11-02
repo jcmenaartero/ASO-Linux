@@ -1,0 +1,8 @@
+dn: uid=pazv,ou=usuarios,dc=ies,dc=local
+changetype: modify
+delete: homePhone
+
+dn: uid=pazv,ou=usuarios,dc=ies,dc=local
+changetype: modify
+delete: initials
+

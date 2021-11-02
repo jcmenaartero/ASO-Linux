@@ -1,0 +1,26 @@
+dn: uid=carmenm,ou=usuarios,dc=ies,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: carmenm
+sn: Maura
+cn: Carmen Maura
+uidNumber: 10002
+gidNumber: 5001
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/carmenm
+mail: carmen.maura@ies.local
+
+dn: uid=pazv,ou=usuarios,dc=ies,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: pazv
+sn: Vega
+cn: Paz Vega
+uidNumber: 10003
+gidNumber: 5001
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/pazv
+mail: paz.vega@ies.local
+

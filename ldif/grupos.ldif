@@ -1,0 +1,9 @@
+dn: cn=alumnos,ou=grupos,dc=ies,dc=local
+objectClass: posixGroup
+cn: alumnos
+gidNumber: 5002
+
+dn: cn=profesores,ou=grupos,dc=ies,dc=local
+objectClass: posixGroup
+cn: profesores
+gidNumber: 5001
