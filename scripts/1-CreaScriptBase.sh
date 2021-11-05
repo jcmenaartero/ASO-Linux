@@ -5,24 +5,25 @@
 
 clear
 
+fecha=$(date +"%Y/%m/%d %H:%M")
 read -p "Nombre del Script: " name
 name=${name}.sh
-fecha=$(date +"%Y/%m/%d %H:%M")
+clear
+echo " "
+echo "Escribe una pequeña descripcion del script:"
+echo " "
+read desc
 
 rm ./$name 2> /dev/null
 touch ./$name
 chmod u+x $name
 
 echo "#!/bin/bash" >> ./$name
-echo "# Autor: Juan Carlos Mena Artero" >> ./$name
+echo "# Autor: $USER" >> ./$name
 echo "# Fecha: $fecha" >> ./$name
-echo "# Descripcion:" >> ./$name
+echo "# Descripcion: $desc" >> ./$name
 echo -e "\nclear" >> ./$name
 
-echo " "
-echo "Creado el archivo $name con permiso de ejecucion"
-echo "---------------------------------------------------"
-ls -l $name
-echo " "
+nano $name
 
 exit 0
