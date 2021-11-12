@@ -24,6 +24,10 @@ echo "# Fecha: $fecha" >> ./$name
 echo "# Descripcion: $desc" >> ./$name
 echo -e "\nclear" >> ./$name
 
-nano $name
+clear
+echo "Creado el archivo $name con permisos de ejecucion"
+echo "-------------------------------------------------"
+ls -l $name
+echo " "
 
 exit 0
