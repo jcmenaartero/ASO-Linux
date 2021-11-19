@@ -25,8 +25,8 @@ echo "# Descripcion: $desc" >> ./$name
 echo -e "\nclear" >> ./$name
 
 clear
-echo "Creado el archivo $name con permisos de ejecucion"
-echo "-------------------------------------------------"
+echo "Creado el archivo $name en el ruta $(pwd)"
+echo "---------------------------------------------------------------------------------"
 ls -l $name
 echo " "
 
