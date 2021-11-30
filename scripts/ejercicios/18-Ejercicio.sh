@@ -8,7 +8,7 @@ source /home/juan/ASO/scripts/impColor.sh
 if [ $# -lt 1 ]
 then
     impColor rojo "ERROR: Numero de parametros incorrecto."
-    echo -e "\nIntroduce numeros entero como parametros\n"
+    echo -e "\nIntroduce algo como $0 <archivo1> <archivo2> ... para mover esos archivos al directorio /home/$USER/backup\n"
     exit 0
 fi
 if [ ! -d /home/$USER/Backup ]
