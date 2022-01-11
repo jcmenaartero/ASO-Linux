@@ -1,7 +1,7 @@
 #!/bin/bash
 # Autor: juan
 # Fecha: 2021/12/14 13:19
-# Descripcion: Importa usuarios de un archivo de texto
+# Descripcion: Importa usuarios de un archivo de texto que contiene en cada linea "usuario:grupo"
 
 clear
 if [ $# -ne 1 ]
@@ -11,18 +11,29 @@ then
     echo " "
     exit 1
 fi
-if [ $# -eq 1 -a -f $1 ]
+if [ -f $1 ]
 then 
     for i in $(cat $1 | cut -d':' -f1)
     do
-        usu=$(grep "$i" $1 | cut -d':' -f1)
+        usu=$i
         grupo=$(grep "$i" $1 | cut -d':' -f2)
-        rnd=$(($RANDOM%10000))
-        pass=abcd$rnd
-        useradd -g $grupo -d /home/$usu -m -s /bin/bash -p $pass $usu
-        if [ $(grep "^$usu" /etc/passwd) ]
+        if [ ! $(grep "^$usu" /etc/passwd) ]
         then
-            echo "Usuario:$usu Contraseña:$pass" >> usuarios.log
+            if [ ! $(grep "^$grupo" /etc/group) ]
+            then
+                echo "Creando el grupo $grupo"
+                groupadd $grupo
+            fi
+            echo "Creando al usuario $usu"
+            rnd=$(($RANDOM%10000))
+            pass=abcd$rnd
+            useradd -g $grupo -d /home/$usu -m -s /bin/bash -p $pass $usu
+            if [ $(grep "^$usu" /etc/passwd) ]
+            then
+                echo "$usu:$pass" >> usuarios.log
+            fi
+        else
+            echo "El usuario $usu ya existe"
         fi
     done
 else

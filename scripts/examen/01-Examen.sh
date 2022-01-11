@@ -9,16 +9,42 @@ echo "-----------MENU------------"
 select option in 'Kernel' 'Procesador' 'Memoria Principal' 'Memoria Swap' 'Usuarios conectados' 'Salir'
 do
     case $option in
-        'Kernel') uname -a ;;
-        'Procesador') grep "^model name" /proc/cpuinfo | cut -d':' -f2 ;;
-        'Memoria Principal') grep "^MemTotal" /proc/meminfo ;;
-        'Memoria Swap') grep "^SwapCached" /proc/meminfo;;
-        'Usuarios conectados') who -q ;;
+        'Kernel') 
+            echo " "
+            uname -a 
+        ;;
+        'Procesador')
+            echo " " 
+            grep "^model name" /proc/cpuinfo | cut -d':' -f2 | sed 's/^ *//g' 
+        ;;
+        'Memoria Principal')
+            echo " "
+            free -h | grep  "^Memoria:" | tr -s ' ' | cut -d' ' -f2 
+        ;;
+        'Memoria Swap')
+            echo " "
+            free -h | grep  "^Swap:" | tr -s ' ' | cut -d' ' -f2 
+        ;;
+        'Usuarios conectados') 
+            echo " "
+            who -q 
+        ;;
         'Salir') 
-            echo "Saliendo..."
+            echo " "
+            echo "Saliendo..." 
             exit 0
-            ;;
+        ;;
     esac
+    echo " "
+    read -p "pulse una tecla para continuar ... " PAUSA
+	clear
+	echo "-----------MENU------------"
+	echo "1) Kernel"
+	echo "2) Procesador"
+	echo "3) Memoria Principal"
+	echo "4) Memoria Swap"
+    echo "5) Usuarios conectados"
+	echo "6) Salir"
 done
 
 exit 0
