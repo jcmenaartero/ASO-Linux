@@ -4,10 +4,12 @@
 # Descripcion: Sirve como ayuda a otros scripts
 
 clear
-usu=$1
-if [ ! $(grep "^$usu" /etc/passwd) ]
-then
-    echo "Creando $usu"
-else
-    echo "El usuario $usu ya existe"
+if ! [ $(id -u) = 0 ]
+then 
+    echo "I am not root!" 
+    exit 1 
 fi
+
+echo "Yo soy root"
+exit 0
+

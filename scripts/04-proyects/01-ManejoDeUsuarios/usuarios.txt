@@ -1,0 +1,5 @@
+pepe:users::/bin/sh
+john:john:/var/john:
+raul:trabajadores:/var/raul:/bin/bash
+ana:users::
+raul:personal::/bin/bash

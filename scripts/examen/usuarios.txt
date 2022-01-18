@@ -1,4 +1,0 @@
-pepe:users
-john:john
-maria:ventas
-juan:comercial

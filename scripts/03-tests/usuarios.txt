@@ -1,0 +1,4 @@
+pepe:users
+john:john
+maria:venta
+carlos:comercial
