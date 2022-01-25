@@ -28,13 +28,13 @@ for linea in $(cat $1)
         fi
         # Primero comprueba que no exista ni el usuario ni el grupo, 
         # para proceder a crear el grupo.
-        if [ ! $(grep "^$usu" /etc/passwd) ] && [ ! $(grep "^$grupo" /etc/group) ]
+        if [ ! $(grep "^$usu:" /etc/passwd) ] && [ ! $(grep "^$grupo:" /etc/group) ]
         then
             echo "Creando el grupo $grupo"
             groupadd $grupo
         fi
         # Verifica que el usuario no existe para posteriormente crealo
-        if [ ! $(grep "^$usu" /etc/passwd) ]
+        if [ ! $(grep "^$usu:" /etc/passwd) ]
         then
             echo "Creando al usuario $usu"
             rnd=$(($RANDOM%10000)) # Genera un numero aleatorio de 4 cifras
